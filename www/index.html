@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html>
+<head><title>Smart Farm</title>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <!--<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />-->
+    <link rel="stylesheet" type="text/css" href="css/app.css">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script src="js/microgear.js"></script>
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <!--guage-->
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+    <!--guage-->
+    <!--w3 css-->
+    <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+    <!--icon-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <!--time picker -->
+      <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+      <script type="text/javascript" src="js/jquery.timepicker.js"></script>
+      <script type="text/javascript" src="js/site.js"></script>
+      <script type="text/javascript" src="js/bootstrap-datepicker.js"></script>
+      <link rel="stylesheet" type="text/css" href="css/bootstrap-datepicker.css" />
+      <link rel="stylesheet" type="text/css" href="css/jquery.timepicker.css" />
+      <link rel="stylesheet" type="text/css" href="css/site.css" />
+
+<style>
+.test9{
+  width: 300px;
+  margin: 0 auto;
+}
+#head {
+padding-top: 10px;
+padding-bottom: 10px;
+background-color: #272c38;
+color: white;
+border-color: black;
+font-size:36px;
+text-align:center;
+
+}
+
+.connected{
+  color:#7FFF00;
+}
+[class*="col-"] {
+    
+    float: left;
+    padding: 10px;
+    padding-left: 20px;
+}
+.col-1 {width: 15%;}
+.col-2 {width: 15%;}
+.col-3 {width: 35%;}
+.col-4 {width: 40%;}
+.col-5 {width: 50%;}
+.col-6 {width: 60%;}
+.col-7 {width: 70%;}
+.col-8 {width: 80%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;
+}
+
+.test9{
+  width: 300px;
+  margin: 0 auto;
+}
+.cl{
+    border-right: 1px solid rgba(192,192,192,0.8);
+    
+}
+.p1{
+  position: relative;
+  text-align:center;
+  height: 50px;
+  width: 300px;
+  font-size: 30px;
+  padding: 0px;
+  border: solid 1.5px;
+  border-color: white;
+  color: #FFF;
+  margin: 0 auto;
+
+}
+.back1{
+  background-color: #5EDA9E;
+
+}
+.fcolor
+{
+  color:rgb(255, 87, 51);
+  font-weight: bold;
+}
+
+
+</style>
+
+</head>
+<body>
+
+<div data-role="page"  class="w3-animate-opacity">
+<div data-role="content" class="back1">
+<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
+      <p class="p1" >S M A R T &nbsp; F A R M</p>
+
+  <p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p> <p>&nbsp;</p> <p>&nbsp;</p>  
+    
+      <p>&nbsp;</p> <p>&nbsp;</p>  <p>&nbsp;</p> 
+
+
+
+      
+  
+    <a href="#observe"  data-transition="slide" class="ui-btn" >Observing and Controling</a>
+    <a class="ui-btn" onclick="loadweb('http://192.168.1.18/graph_index.php', '_system', 'location=yes'); return false;">Statistic</a>
+</div>
+
+</div>
+
+<!--******************************-->
+
+<div data-role="page" id="observe">
+
+  <div data-role="main"><div id="head"> Observing and Controling</div></div>
+
+    <div data-role="content">
+
+    <div id="data" class="w3-animate-fading connected" align="center">.</div><p></p>
+
+    <div class="row">
+    <p class="col-2" align="center"></p>
+    <div class="col-3 cl fcolor" align="center">House 1</div>
+    <div class="col-3 cl" align="center">House 2</div>
+    <p class="col-1" align="center">Unit</p>
+    <div class="col-2" align="center">Temp</div>
+    <div class="col-3 fcolor" align="center" id="temp_1"></div>
+    <div class="col-3" align="center" id="temp_2"></div>
+    <div class="col-1" align="center"> C</div>
+
+    <div class="col-2" align="center">Humid</div>
+    <div class="col-3 fcolor" align="center" id="humid_1"></div>
+    <div class="col-3" align="center" id="humid_2"></div>
+    <div class="col-1" align="center"> %</div>
+
+    <div class="col-2" align="center">Soil</div>
+    <div class="col-3 fcolor" align="center" id="soil_1"></div>
+    <div class="col-3" align="center" id="soil_2"></div>
+    <div class="col-1" align="center"> %</div>
+
+    <div class="col-2" align="center">Light</div>
+    <div class="col-3 fcolor" align="center" id="light_1"></div>
+    <div class="col-3" align="center" id="light_2"></div>
+    <div class="col-1" align="center">%</div>
+     <p>&nbsp;</p><p>&nbsp;</p>
+    
+        <p><a href="#myPopup1" data-rel="popup" class="ui-btn ui-shadow ui-btn-icon-left ui-icon-action test9" data-position-to="window" data-transition="fade">Manual control</a></p>
+        
+        <p><a class="ui-btn ui-shadow ui-btn-icon-left ui-icon-search test9" onclick="loadweb('http://192.168.1.18/graph_index.php', '_system', 'location=yes'); return false;">Statistic</a>
+    </div>
+    </div>
+
+    <div data-role="popup" id="myPopup1" class="ui-content">
+     <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+        <div class="ui-grid-a">
+        <div class="ui-block-a">
+        <a href="#" class="ui-btn ui-btn-b" >LIGHT</a>
+     </div>
+    
+     <div class="ui-block-b">
+        <div class="ui-grid-a">
+
+           <div class="ui-block-a">
+                <button class="ui-btn " onClick="Light_on()"><i id="light_on_icon_1" class="fa fa-circle-o-notch fa-spin" style="color:green"></i></button>
+
+            </div>
+
+          <div class="ui-block-b">
+            <a  class="ui-btn" onClick="Light_off()"><i class="fa fa-close" style="color:red"></i></a></div>
+          </div>
+        </div>
+    </div>
+     
+     
+
+    <div class="ui-grid-a">
+        <div class="ui-block-a">
+        <a href="#" class="ui-btn ui-btn-b" >FAN</a>
+     </div>
+     
+     <div class="ui-block-b">
+        <div class="ui-grid-a">
+           <div class="ui-block-a">
+             <a  class="ui-btn" onClick="Fan_on()"><i id="fan_on_icon_1" class="fa fa-circle-o-notch fa-spin" style="color:green"></i></a></div>
+           <div class="ui-block-b">
+             <a  class="ui-btn" onClick="Fan_off()"><i class="fa fa-close" style="color:red"></i></a></div>
+      </div>
+     </div>
+     </div>
+
+     <div class="ui-grid-a">
+        <div class="ui-block-a">
+        <a href="#" class="ui-btn ui-btn-b" >WATER</a>
+     </div>
+     
+     <div class="ui-block-b">
+        <div class="ui-grid-a">
+           <div class="ui-block-a">
+             <a  class="ui-btn" onClick="Water_on()"><i id="water_on_icon_1" class="fa fa-circle-o-notch fa-spin" style="color:green"></i></a></div>
+           <div class="ui-block-b">
+             <a  class="ui-btn" onClick="Water_off()"><i class="fa fa-close" style="color:red"></i></a></div>
+      </div>
+     </div>
+     </div>
+
+     <div class="ui-grid-a">
+        <div class="ui-block-a">
+        <a href="#" class="ui-btn ui-btn-b" >MIST</a>
+     </div>
+     
+     <div class="ui-block-b">
+        <div class="ui-grid-a">
+           <div class="ui-block-a">
+             <a  class="ui-btn" onClick="Mist_on()"><i id="mist_on_icon_1" class="fa fa-circle-o-notch fa-spin" style="color:green"></i></a></div>
+           <div class="ui-block-b">
+             <a  class="ui-btn" onClick="Mist_off()"><i class="fa fa-close " style="color:red"></i></a></div>
+      </div>
+     </div>
+     </div>
+
+      <div href="" class="cube-switch" id="cube-switch" onclick="switchPress()">
+              <span class="switch">
+              <span class="switch-state off"></span>
+              <span class="switch-state on"></span>
+          </span>
+          </div>
+ </div>
+</div>
+
+
+
+
+<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script> 
+<script src="js/jquery.AshAlom.gaugeMeter-2.0.0.min.js"></script> 
+
+<script>
+
+  const APPID     = "Nextgenfarm";
+  const APPKEY    = "SQcVvFssnEGjYn1";
+  const APPSECRET = "vBDtCCUbYzRWli8BaoOoZR0tP";
+
+    var microgear = Microgear.create({
+        key: APPKEY,
+        secret: APPSECRET,
+        //alias : "myhtml"         /*  optional  */
+    });
+    function Light_on(){
+            microgear.chat("Back_end_py","Light_ON");
+            var x = document.getElementById("light_on_icon_1");
+            x.style.color = "grey";
+
+    }
+    function Light_off(){
+            microgear.chat("Back_end_py","Light_OFF");
+            var x = document.getElementById("light_on_icon_1");
+            x.style.color = "green";
+    }
+    function Fan_on(){
+            microgear.chat("Back_end_py","Fan_ON");
+            var x = document.getElementById("fan_on_icon_1");
+            x.style.color = "grey";
+    }
+    function Fan_off(){
+            microgear.chat("Back_end_py","Fan_OFF");
+            var x = document.getElementById("fan_on_icon_1");
+            x.style.color = "green";
+    }
+    function Water_on(){
+            microgear.chat("Back_end_py","Water_ON");
+            var x = document.getElementById("water_on_icon_1");
+            x.style.color = "grey";
+    }
+    function Water_off(){
+            microgear.chat("Back_end_py","Water_OFF");
+            var x = document.getElementById("water_on_icon_1");
+            x.style.color = "green";
+    }
+    function Mist_on(){
+            microgear.chat("Back_end_py","Mist_ON");
+            var x = document.getElementById("mist_on_icon_1");
+            x.style.color = "grey";
+    }
+    function Mist_off(){
+            microgear.chat("Back_end_py","Mist_OFF");
+            var x = document.getElementById("mist_on_icon_1");
+            x.style.color = "green";
+    }
+    
+  microgear.on('message',function(topic,msg){
+
+    var split_msg = msg.split(",");
+
+
+
+    if(split_msg[4]=="Nextgenfarm"){
+
+      document.getElementById("temp_1").innerHTML = parseInt(split_msg[0]);
+      document.getElementById("humid_1").innerHTML = parseInt(split_msg[1]);
+      document.getElementById("soil_1").innerHTML = split_msg[2];
+      document.getElementById("light_1").innerHTML = split_msg[3];
+    }
+    else if(split_msg[4]=="Nextgenfarm2"){
+
+
+      document.getElementById("temp_2").innerHTML = parseInt(split_msg[0]);
+      document.getElementById("humid_2").innerHTML = parseInt(split_msg[1]);
+      document.getElementById("soil_2").innerHTML = split_msg[2];
+      document.getElementById("light_2").innerHTML = split_msg[3];
+    }
+    else
+    {
+      document.getElementById("data_3").innerHTML = "ERROR";
+    }
+
+
+  });
+   
+   
+    microgear.on('connected', function() {
+
+        microgear.setname('manual_control'); 
+
+        microgear.subscribe("/node11");
+        microgear.subscribe("/node12");
+
+           /* alias can be renamed anytime with this function */
+        document.getElementById("data").innerHTML = "SMARTFARM";
+        setInterval(function() {
+            microgear.chat("Back_end_py","Connected with RASP-PI");
+        },5000);
+    });
+
+    microgear.on('present', function(event) {
+        console.log(event);
+    });
+
+    microgear.on('absent', function(event) {
+        console.log(event);
+    });
+    //microgear.useTLS(false);
+    microgear.connect(APPID);
+    
+</script>
+
+<script type="text/javascript">
+var Ref = null;
+
+function LoadStart(event) {
+    spinner.spin(target);
+}
+
+function LoadStop(event) {
+    spinner.stop();
+}
+
+function LoadError(event) {
+    // alert(event.type + ' - ' + event.message);
+}
+
+function Close(event) {
+     Ref.removeEventListener('loadstart', LoadStart);
+     Ref.removeEventListener('loadstop', LoadStop);
+     Ref.removeEventListener('loaderror', LoadError);
+     Ref.removeEventListener('exit', Close);
+}
+
+function loadweb(url) {
+    Ref = window.open(url, '_blank', 'location=yes,EnableViewPortScale=yes');
+    Ref.addEventListener('loadstart', LoadStart);
+    Ref.addEventListener('loadstop', LoadStop);
+    Ref.removeEventListener('loaderror', LoadError);
+    Ref.addEventListener('exit', Close);
+    return false;
+}
+</script>
+
+</body>
+
+
+</html>

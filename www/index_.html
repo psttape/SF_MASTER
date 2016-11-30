@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html>
+<head><title>Smart Farm</title>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <script src="/css/App.css"></script>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script src="js/microgear.js"></script>
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <!--guage-->
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+    <!--guage-->
+ 
+<style>
+#bg1page{
+background-image: url(img/sf6.jpg);
+background-position: center;
+}
+#test {
+padding-top: 10px;
+padding-bottom: 10px;
+background-color: #272c38;
+color: white;
+border-color: black;
+font-size:36px;
+text-align:center;
+font-family:"Rockwell", Times, serif;
+}
+#cent {
+  text-align: center;
+}
+#decfont {
+  font-size:20px;
+}
+#backpara{
+  background-color:#FFFFFF;
+  border-color: #FFFFFF;
+  
+}
+#backcontent{
+  background-color: #FFF;
+}
+#back1{
+  background-color: #f3726d;
+  color:#ffffff;
+  border-style:none;
+  border-radius: 18px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-right: 30px;
+  padding-left: 30px;
+}
+#back2{
+  background-color: #27aec4;
+  color:white;
+  border-style:none;
+  border-radius: 18px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-right: 30px;
+  padding-left: 30px;
+}
+.head1{
+  background-color: black;
+  color:white;
+}
+#kuy{
+  text-align:center;
+  background-color: #fff;
+  padding: 15px;
+  border-right: 1px groove rgba(255, 255, 255, 0.2);
+ 
+}
+#kuy2{
+  text-align:center;
+  background-color: #fff;
+  padding: 15px;
+  border-right: 1px groove rgba(255, 255, 255, 0.2);
+ 
+}
+
+@font-face {
+    font-family: 'Rockwell';
+    src: url('fonts/ROCKWELL.eot');
+    src: url('fonts/ROCK.ttf') format('truetype'),
+}
+[class*="col-"] {
+    
+    float: left;
+    padding: 10px;
+    padding-left: 0px;
+    border-right: 1px solid rgba(192,192,192,0.8);
+}
+
+.col-1 {width: 12%;padding: 10px;}
+.col-2 {width: 15%;}
+.col-3 {width: 35%;}
+.col-4 {width: 40%;}
+.col-5 {width: 50%;}
+.col-6 {width: 60%;}
+.col-7 {width: 70%;}
+.col-8 {width: 80%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+</style>
+</head>
+<body>
+
+<div data-role="page" id="page1" >
+<div data-role="content" class="ui-content" id="bg1page">
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+
+
+
+      
+  
+    <a href="#observe"  data-transition="slide" class="ui-btn" >Observing and Controling</a>
+    <a href="#stat" data-transition="slide" class="ui-btn" >Statistic</a>
+</div>
+</div>
+
+<!--******************************-->
+
+<div data-role="page" id="observe">
+
+  <div data-role="main"><div id="test"> Observing and Controling</div></div>
+    <div data-role="content">
+    <div id="topic_1"></div>
+    <div id="data"></div>
+    <div id="topic_2"></div>
+    <div id="dataa"></div>
+    <div id="showb"></div>
+    <p class="col-2" align="center">Para</p>
+    <div class="col-3" align="center">Green 1</div>
+    <div class="col-3" align="center">Green 2</div>
+    <p class="col-1" align="center">Unit</p>
+
+    <div class="col-2" align="center">Temp</div>
+    <div class="col-3" align="center" id="temp_1"></div>
+    <div class="col-3" align="center" id="temp_2"></div>
+    <p class="col-1" align="center"> C</p>
+
+    <div class="col-2" align="center">Humid</div>
+    <div class="col-3" align="center" id="humid_1"></div>
+    <div class="col-3" align="center" id="humid_2"></div>
+    <p class="col-1" align="center"> %</p>
+
+    <div class="col-2" align="center">Soil</div>
+    <div class="col-3" align="center" id="soil_1"></div>
+    <div class="col-3" align="center" id="soil_2"></div>
+    <p class="col-1" align="center"> %</p>
+
+    <div class="col-2" align="center">Light</div>
+    <div class="col-3" align="center" id="light_1"></div>
+    <div class="col-3" align="center" id="light_2"></div>
+    <p class="col-1" align="center"> Lx</p>
+       <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>   
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+     
+   
+        <p class="col-12" align="center">Manual control</p>
+    
+        <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+    </div>
+
+
+    <div data-role="popup" id="myPopup1" class="ui-content">
+     <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+        <div class="ui-grid-a">
+        <div class="ui-block-a">
+        <a href="#" class="ui-btn ui-btn-b" >LIGHT</a>
+     </div>
+    
+     <div class="ui-block-b">
+        <div class="ui-grid-a">
+           <div class="ui-block-a">
+              <a class="ui-btn " onClick="Light_on()">ON</a></div>
+           <div class="ui-block-b">
+            <a  class="ui-btn" onClick="Light_off()">OFF</a></div>
+        </div>
+    </div>
+    </div>
+     
+     
+
+    <div class="ui-grid-a">
+        <div class="ui-block-a">
+        <a href="#" class="ui-btn ui-btn-b" >FAN</a>
+     </div>
+     
+     <div class="ui-block-b">
+        <div class="ui-grid-a">
+           <div class="ui-block-a">
+             <a  class="ui-btn" onClick="Fan_on()">ON</a></div>
+           <div class="ui-block-b">
+             <a  class="ui-btn" onClick="Fan_off()">OFF</a></div>
+      </div>
+     </div>
+     </div>
+
+     <div class="ui-grid-a">
+        <div class="ui-block-a">
+        <a href="#" class="ui-btn ui-btn-b" >WATER</a>
+     </div>
+     
+     <div class="ui-block-b">
+        <div class="ui-grid-a">
+           <div class="ui-block-a">
+             <a  class="ui-btn" onClick="Water_on()">ON</a></div>
+           <div class="ui-block-b">
+             <a  class="ui-btn" onClick="Water_off()">OFF</a></div>
+      </div>
+     </div>
+     </div>
+
+     <div class="ui-grid-a">
+        <div class="ui-block-a">
+        <a href="#" class="ui-btn ui-btn-b" >MIST</a>
+     </div>
+     
+     <div class="ui-block-b">
+        <div class="ui-grid-a">
+           <div class="ui-block-a">
+             <a  class="ui-btn" onClick="Mist_on()">ONNNNNNNN</a></div>
+           <div class="ui-block-b">
+             <a  class="ui-btn" onClick="Mist_off()">OFF</a></div>
+      </div>
+     </div>
+     </div>
+
+      <div href="" class="cube-switch" id="cube-switch" onclick="switchPress()">
+              <span class="switch">
+              <span class="switch-state off"></span>
+              <span class="switch-state on"></span>
+          </span>
+          </div>
+ </div>
+</div>
+</div>
+
+<!--******************-->
+<div data-role="page" id="stat">
+<div data-role="header">Statistic</div>
+<div data-role="main">Content</div>
+<a class="ui-btn" onclick="loadweb('https://www.google.co.th/', '_system', 'location=yes'); return false;">Search</a>
+
+</div>
+
+<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script> 
+<script src="js/jquery.AshAlom.gaugeMeter-2.0.0.min.js"></script> 
+<script>
+  document.getElementById("kuy").innerHTML="80";
+  document.getElementById("kuy2").innerHTML="80";
+  document.getElementById("kuy3").innerHTML="80";
+  document.getElementById("kuy4").innerHTML="80";
+  document.getElementById("kuy5").innerHTML="80";
+  document.getElementById("kuy6").innerHTML="80";
+  document.getElementById("kuy7").innerHTML="80";
+  document.getElementById("kuy8").innerHTML="20";
+</script>
+<script>
+
+  const APPID     = "Nextgenfarm";
+  const APPKEY    = "SQcVvFssnEGjYn1";
+  const APPSECRET = "vBDtCCUbYzRWli8BaoOoZR0tP";
+
+    var microgear = Microgear.create({
+        key: APPKEY,
+        secret: APPSECRET,
+        //alias : "myhtml"         /*  optional  */
+    });
+    function Light_on(){
+            microgear.chat("Back_end_py","Light_ON");
+    }
+    function Light_off(){
+            microgear.chat("Back_end_py","Light_OFF");
+    }
+    function Fan_on(){
+            microgear.chat("Back_end_py","Fan_ON");
+    }
+    function Fan_off(){
+            microgear.chat("Back_end_py","Fan_OFF");
+    }
+    function Water_on(){
+            microgear.chat("Back_end_py","Water_ON");
+    }
+    function Water_off(){
+            microgear.chat("Back_end_py","Water_OFF");
+    }
+    function Mist_on(){
+            microgear.chat("Back_end_py","Mist_ON");
+    }
+    function Mist_off(){
+            microgear.chat("Back_end_py","Mist_OFF");
+    }
+    var temp1,humid1,light1,soil1;
+    var temp2,humid2,light2,soil2;
+    
+
+     microgear.on('message',function(topic,msg) {
+        
+        document.getElementById("topic_1").innerHTML= topic;
+        document.getElementById("data").innerHTML = msg;
+        var split_msg = msg.split(",");
+        var a=split_msg[4];
+          document.getElementById("dataa").innerHTML = a;
+        temp1=split_msg[0];
+        humid1=split_msg[1];
+        soil1=split_msg[2];
+        light1=split_msg[3];
+        document.getElementById("temp_1").innerHTML = temp1;
+        document.getElementById("humid_1").innerHTML = humid1;
+        document.getElementById("soil_1").innerHTML = soil1;
+        document.getElementById("light_1").innerHTML = light1;
+
+    });
+    
+     microgear.on('message',function(topic,msg) {
+        
+        document.getElementById("topic_2").innerHTML= topic;
+        document.getElementById("data").innerHTML = msg;
+        var split_msg = msg.split(",");
+        var b=split_msg[4];
+          document.getElementById("showb").innerHTML = b;
+      
+        temp2=split_msg[0];
+        humid2=split_msg[1];
+        soil2=split_msg[2];
+        light2=split_msg[3];
+        document.getElementById("temp_2").innerHTML = temp2;
+        document.getElementById("humid_2").innerHTML = humid2;
+        document.getElementById("soil_2").innerHTML = soil2;
+        document.getElementById("light_2").innerHTML = light2;
+        
+    });
+    
+
+
+   
+   
+    microgear.on('connected', function() {
+        microgear.setname('manual_control');    /* alias can be renamed anytime with this function */
+        document.getElementById("data").innerHTML = "Now I am connected with netpie...";
+        setInterval(function() {
+            microgear.chat("Back_end_py","Hello from myself ");
+        },5000);
+    });
+
+    microgear.on('present', function(event) {
+        console.log(event);
+    });
+
+    microgear.on('absent', function(event) {
+        console.log(event);
+    });
+
+    microgear.connect(APPID);
+    
+</script>
+<script >
+  const APPID     = "Nextgenfarm";
+  const APPKEY    = "enhy0npWFxclyZt";
+  const APPSECRET = "TfZr0yJLvOP6A7twJfP2RYagN";
+
+    var microgear = Microgear.create({
+        key: APPKEY,
+        secret: APPSECRET,
+        //alias : "myhtml"         /*  optional  */
+    });
+  var temp2,humid2,light2,soil2;
+   microgear.on('message',function(topic,msg) {
+        
+        document.getElementById("topic_2").innerHTML= topic;
+        document.getElementById("data").innerHTML = msg;
+        var split_msg = msg.split(",");
+        var b=split_msg[4];
+          document.getElementById("showb").innerHTML = b;
+      
+        temp2=split_msg[0];
+        humid2=split_msg[1];
+        soil2=split_msg[2];
+        light2=split_msg[3];
+        document.getElementById("temp_2").innerHTML = temp2;
+        document.getElementById("humid_2").innerHTML = humid2;
+        document.getElementById("soil_2").innerHTML = soil2;
+        document.getElementById("light_2").innerHTML = light2;
+        
+    });
+    
+
+
+   
+   
+    microgear.on('connected', function() {
+        microgear.setname('manual_control');    /* alias can be renamed anytime with this function */
+        document.getElementById("data").innerHTML = "Now I am connected with netpie...";
+        setInterval(function() {
+            microgear.chat("Back_end_py","Hello from myself ");
+        },5000);
+    });
+
+    microgear.on('present', function(event) {
+        console.log(event);
+    });ไ
+
+    microgear.on('absent', function(event) {
+        console.log(event);
+    });
+
+    microgear.connect(APPID);
+    
+</script>
+<script>
+$(".GaugeMeter").gaugeMeter();
+</script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+   
+</script>
+<script type="text/javascript">
+var Ref = null;
+
+function LoadStart(event) {
+    spinner.spin(target);
+}
+
+function LoadStop(event) {
+    spinner.stop();
+}
+
+function LoadError(event) {
+    // alert(event.type + ' - ' + event.message);
+}
+
+function Close(event) {
+     Ref.removeEventListener('loadstart', LoadStart);
+     Ref.removeEventListener('loadstop', LoadStop);
+     Ref.removeEventListener('loaderror', LoadError);
+     Ref.removeEventListener('exit', Close);
+}
+
+function loadweb(url) {
+    Ref = window.open(url, '_blank', 'location=yes,EnableViewPortScale=yes');
+    Ref.addEventListener('loadstart', LoadStart);
+    Ref.addEventListener('loadstop', LoadStop);
+    Ref.removeEventListener('loaderror', LoadError);
+    Ref.addEventListener('exit', Close);
+    return false;
+}
+</script>
+</body>
+
+
+</html>

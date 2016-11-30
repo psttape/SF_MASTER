@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html>
+<head><title>Smart Farm</title>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
+    <script type="text/javascript" src="css/app.css"></script>
+
+
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script src="js/microgear.js"></script>
+
+    <!--guage-->
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+    <!--guage-->
+    <style>
+.GaugeMeter {
+  position: Relative;
+  text-align: Center;
+  overflow: Hidden;
+  cursor: Default;
+  display: inline-block;
+}
+
+.GaugeMeter SPAN, .GaugeMeter B {
+  width: 54%;
+  position: Absolute;
+  text-align: Center;
+  display: Inline-Block;
+  color: RGBa(0,0,0,.8);
+  font-weight: 100;
+  font-family: "Open Sans", Arial;
+  overflow: Hidden;
+  white-space: NoWrap;
+  text-overflow: Ellipsis;
+  margin: 0 23%;
+}
+
+.GaugeMeter[data-style="Semi"] B {
+  width: 80%;
+  margin: 0 10%;
+}
+
+.GaugeMeter S, .GaugeMeter U {
+  text-decoration: None;
+  font-size: .60em;
+  font-weight: 200;
+  opacity: .6;
+}
+
+.GaugeMeter B {
+  color: #000;
+  font-weight: 200;
+  opacity: .8;
+}
+#bg1page{
+background-image: url(img/sf6.jpg);
+background-position: center;
+}
+#test {
+padding-top: 10px;
+padding-bottom: 10px;
+background-color: #272c38;
+color: white;
+border-color: black;
+font-size:36px;
+text-align:center;
+font-family:"Rockwell", Times, serif;
+}
+#cent {
+  text-align: center;
+}
+#decfont {
+  font-size:20px;
+}
+#backpara{
+  background-color:#FFFFFF;
+  border-color: #FFFFFF;
+  
+}
+#backcontent{
+  background-color: #272c38;
+}
+#back1{
+  background-color: #f3726d;
+  color:#ffffff;
+  border-style:none;
+  border-radius: 18px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-right: 30px;
+  padding-left: 30px;
+}
+#back2{
+  background-color: #27aec4;
+  color:white;
+  border-style:none;
+  border-radius: 18px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-right: 30px;
+  padding-left: 30px;
+}
+.head1{
+  background-color: black;
+  color:white;
+}
+@font-face {
+    font-family: 'Rockwell';
+    src: url('fonts/ROCKWELL.eot');
+    src: url('fonts/ROCK.ttf') format('truetype'),
+}
+</style>
+
+</head>
+<body>
+<div id="data"></div>
+<div data-role="page" id="page1" >
+<div data-role="content" class="ui-content" id="bg1page">
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+
+
+
+      
+  
+    <a href="#observe"  data-transition="slide" class="ui-btn" >Observing and Controling</a>
+    <a href="#stat" data-transition="slide" class="ui-btn" >Statistic</a>
+</div>
+</div>
+
+<!--******************************-->
+
+<div data-role="page" id="observe">
+
+  <div data-role="main"><div id="test"> Observing and Controling</div></div>
+    <div data-role="content" class="ui-content" id="backcontent">
+    
+    <div id="data2"></div>
+    <div id="temp_1"></div>
+    <div id="decfont">
+    <div id="back1">
+    
+    Greenhouse 1 :
+
+    <div class="ui-grid-c" id="cent">
+      <div class="ui-block-a">
+       <div class="GaugeMeter" 
+            id="HumidGaugeMeter_1" 
+            data-percent="60" 
+            data-append="%" data-size="150" 
+            data-theme="White" 
+            data-back="RGBa(0,0,0,.1)" 
+            data-animate_gauge_colors="1" 
+            data-animate_text_colors="1" 
+            data-width="15" 
+            data-label="<font style='color:White;font-size:18px'>Humidity</font>" 
+            data-style="Semi" 
+            data-label_color="#FFF"></div>
+      </div>
+      <div class="ui-block-b">
+       <div class="GaugeMeter" 
+            id="TempGaugeMeter_1" 
+            data-percent="50" 
+            data-append="C" data-size="150" 
+            data-theme="White" 
+            data-back="RGBa(0,0,0,.1)" 
+            data-animate_gauge_colors="1" 
+            data-animate_text_colors="1" 
+            data-width="15" 
+            data-label="<font style='color:White;font-size:18px'>Temperature</font>" 
+            data-style="Semi" 
+            data-label_color="#FFF"></div>
+      </div>
+      <div class="ui-block-c">
+        <div class="GaugeMeter" 
+            id="SoilGaugeMeter_1" 
+            data-percent="50" 
+            data-append="%" data-size="150" 
+            data-theme="White" 
+            data-back="RGBa(0,0,0,.1)" 
+            data-animate_gauge_colors="1" 
+            data-animate_text_colors="1" 
+            data-width="15" 
+            data-label="<font style='color:White;font-size:18px'>Soil Moisture</font>" 
+            data-style="Semi" 
+            data-label_color="#FFF"></div>
+      </div>
+      <div class="ui-block-d">
+        <div class="GaugeMeter" 
+            id="LightGaugeMeter_1" 
+            data-percent="50" 
+            data-append="%" data-size="150" 
+            data-theme="White" 
+            data-back="RGBa(0,0,0,.1)" 
+            data-animate_gauge_colors="1" 
+            data-animate_text_colors="1" 
+            data-width="15" 
+            data-label="<font style='color:White;font-size:18px'>Light</font>" 
+            data-style="Semi" 
+            data-label_color="#FFF"></div>
+      </div>
+    </div>
+    </div>
+    <p></p>
+
+    <div id="back2">
+    Greenhouse 2 :
+
+    <div class="ui-grid-c" id="cent">
+      <div class="ui-block-a">
+        <p> 31.02C </p>
+        <p> Temp</p>
+      </div>
+      <div class="ui-block-b">
+        <p> 66.7 %</p>
+        <p> Humid</p>
+      </div>
+      <div class="ui-block-c">
+        <p> 73 % </p>
+        <p><font size="4"> Soil</font></p>
+      </div>
+      <div class="ui-block-d">
+        <p> 20 Lx </p>
+        <p> Light</p>
+      </div>
+    </div>
+    </div>
+    </div>
+     <p></p>
+
+     
+    <div class="ui-grid-a">
+      <div class="ui-block-a">
+        <a href="#myPopup1" data-rel="popup" class="ui-btn" data-position-to="window" data-transition="slide">Manual control</a>
+        </div>
+      <div class="ui-block-b">
+        <a href="#" class="ui-btn">Auto control</a>
+        </div>
+        <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+    </div>
+
+
+    <div data-role="popup" id="myPopup1" class="ui-content">
+     <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+        <div class="ui-grid-a">
+        <div class="ui-block-a">
+        <a href="#" class="ui-btn ui-btn-b" >LIGHT</a>
+     </div>
+    
+     <div class="ui-block-b">
+        <div class="ui-grid-a">
+           <div class="ui-block-a">
+              <a class="ui-btn " onClick="Light_on()">ON</a></div>
+           <div class="ui-block-b">
+            <a  class="ui-btn" onClick="Light_off()">OFF</a></div>
+        </div>
+    </div>
+    </div>
+     
+     
+
+    <div class="ui-grid-a">
+        <div class="ui-block-a">
+        <a href="#" class="ui-btn ui-btn-b" >FAN</a>
+     </div>
+     
+     <div class="ui-block-b">
+        <div class="ui-grid-a">
+           <div class="ui-block-a">
+             <a  class="ui-btn" onClick="Fan_on()">ON</a></div>
+           <div class="ui-block-b">
+             <a  class="ui-btn" onClick="Fan_off()">OFF</a></div>
+      </div>
+     </div>
+     </div>
+
+     <div class="ui-grid-a">
+        <div class="ui-block-a">
+        <a href="#" class="ui-btn ui-btn-b" >WATER</a>
+     </div>
+     
+     <div class="ui-block-b">
+        <div class="ui-grid-a">
+           <div class="ui-block-a">
+             <a  class="ui-btn" onClick="Water_on()">ON</a></div>
+           <div class="ui-block-b">
+             <a  class="ui-btn" onClick="Water_off()">OFF</a></div>
+      </div>
+     </div>
+     </div>
+
+     <div class="ui-grid-a">
+        <div class="ui-block-a">
+        <a href="#" class="ui-btn ui-btn-b" >MIST</a>
+     </div>
+     
+     <div class="ui-block-b">
+        <div class="ui-grid-a">
+           <div class="ui-block-a">
+             <a  class="ui-btn" onClick="Mist_on()">ONNNNNNNN</a></div>
+           <div class="ui-block-b">
+             <a  class="ui-btn" onClick="Mist_off()">OFF</a></div>
+      </div>
+     </div>
+     </div>
+
+      <div href="" class="cube-switch" id="cube-switch" onclick="switchPress()">
+              <span class="switch">
+              <span class="switch-state off"></span>
+              <span class="switch-state on"></span>
+          </span>
+          </div>
+ </div>
+</div>
+</div>
+
+<!--******************-->
+<div data-role="page" id="stat">
+<div data-role="header">Statistic</div>
+<div data-role="main">Content</div>
+<a class="ui-btn" onclick="window.open('https://www.google.co.th/', '_system', 'location=yes'); return false;">Search</a>
+
+</div>
+
+<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script> 
+<script src="jquery.AshAlom.gaugeMeter-2.0.0.min.js"></script> 
+<script>
+  const APPID     = "Nextgenfarm";
+  const APPKEY    = "SQcVvFssnEGjYn1";
+  const APPSECRET = "vBDtCCUbYzRWli8BaoOoZR0tP";
+
+    var microgear = Microgear.create({
+        key: APPKEY,
+        secret: APPSECRET,
+        //alias : "myhtml"         /*  optional  */
+    });
+    function Light_on(){
+            microgear.chat("Back_end_py","Light_ON");
+    }
+    function Light_off(){
+            microgear.chat("Back_end_py","Light_OFF");
+    }
+    function Fan_on(){
+            microgear.chat("Back_end_py","Fan_ON");
+    }
+    function Fan_off(){
+            microgear.chat("Back_end_py","Fan_OFF");
+    }
+    function Water_on(){
+            microgear.chat("Back_end_py","Water_ON");
+    }
+    function Water_off(){
+            microgear.chat("Back_end_py","Water_OFF");
+    }
+    function Mist_on(){
+            microgear.chat("Back_end_py","Mist_ON");
+    }
+    function Mist_off(){
+            microgear.chat("Back_end_py","Mist_OFF");
+    }
+    var temp1,humid1,light1,soil1;
+    var temp2,humid2,light2,soil2;
+
+    microgear.on('message',function(topic,msg) {
+        document.getElementById("data2").innerHTML = msg;
+        var split_msg = msg.split(",");
+        temp1=split_msg[0];
+        temp01 = parseInt(temp1);
+        humid1=split_msg[1];
+        soil1=split_msg[2];
+        light1=split_msg[3];
+        document.getElementById("temp_1").innerHTML = temp1;
+        document.getElementById("humid_1").innerHTML = humid1;
+        document.getElementById("soil_1").innerHTML = soil1;
+        document.getElementById("light_1").innerHTML = light1;
+    });
+
+    microgear.on('connected', function() {
+        microgear.setname('manual_control');    /* alias can be renamed anytime with this function */
+        document.getElementById("data").innerHTML = "Now I am connected with netpie...";
+        setInterval(function() {
+            microgear.chat("Back_end_py","Hello from myself ");
+        },5000);
+    });
+
+    microgear.on('present', function(event) {
+        console.log(event);
+    });
+
+    microgear.on('absent', function(event) {
+        console.log(event);
+    });
+
+    microgear.connect(APPID);
+
+    
+    var test = getAttribute("temp_1");
+    document.getElementById("HumidGaugeMeter_1").setAttribute("data-percent",test);
+
+</script>
+<script>
+$(".GaugeMeter").gaugeMeter();
+</script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</body>
+
+
+</html>
