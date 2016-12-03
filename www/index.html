@@ -96,10 +96,28 @@ text-align:center;
 }
 .fcolor
 {
-  color:rgb(255, 87, 51);
+  color:rgb(128, 128, 128);
   font-weight: bold;
 }
-
+.fhouse{
+  font-size: 20px;
+}
+.ftemp{
+  color:#FF8A33;
+  font-weight: bold;
+}
+.fhumid{
+  color: #33ACFF;
+  font-weight:bold;
+}
+.fsoil{
+  color: #732501;
+  font-weight: bold;
+}
+.flight{
+  color: #FCE503;
+  font-weight: bold;
+}
 
 </style>
 
@@ -118,8 +136,8 @@ text-align:center;
 
 
       
-  
-    <a href="#observe"  data-transition="slide" class="ui-btn" >Observing and Controling</a>
+
+    <a href="#observe"  data-transition="slide" class="ui-btn" >Observing and Controlling</a>
     <a class="ui-btn" onclick="loadweb('http://192.168.1.18/graph_index.php', '_system', 'location=yes'); return false;">Statistic</a>
 </div>
 
@@ -129,7 +147,7 @@ text-align:center;
 
 <div data-role="page" id="observe">
 
-  <div data-role="main"><div id="head"> Observing and Controling</div></div>
+  <div data-role="main"><div id="head"> Observing and Controlling</div></div>
 
     <div data-role="content">
 
@@ -137,25 +155,25 @@ text-align:center;
 
     <div class="row">
     <p class="col-2" align="center"></p>
-    <div class="col-3 cl fcolor" align="center">House 1</div>
-    <div class="col-3 cl" align="center">House 2</div>
+    <div class="col-3 cl fhouse fcolor" align="center">House 1</div>
+    <div class="col-3 cl fhouse" align="center">House 2</div>
     <p class="col-1" align="center">Unit</p>
-    <div class="col-2" align="center">Temp</div>
+    <div class="col-2 ftemp" align="center">Temp</div>
     <div class="col-3 fcolor" align="center" id="temp_1"></div>
     <div class="col-3" align="center" id="temp_2"></div>
     <div class="col-1" align="center"> C</div>
 
-    <div class="col-2" align="center">Humid</div>
+    <div class="col-2 fhumid" align="center">Humid</div>
     <div class="col-3 fcolor" align="center" id="humid_1"></div>
     <div class="col-3" align="center" id="humid_2"></div>
     <div class="col-1" align="center"> %</div>
 
-    <div class="col-2" align="center">Soil</div>
+    <div class="col-2 fsoil" align="center">Soil</div>
     <div class="col-3 fcolor" align="center" id="soil_1"></div>
     <div class="col-3" align="center" id="soil_2"></div>
     <div class="col-1" align="center"> %</div>
 
-    <div class="col-2" align="center">Light</div>
+    <div class="col-2 flight" align="center">Light</div>
     <div class="col-3 fcolor" align="center" id="light_1"></div>
     <div class="col-3" align="center" id="light_2"></div>
     <div class="col-1" align="center">%</div>
@@ -341,7 +359,7 @@ text-align:center;
         microgear.subscribe("/node12");
 
            /* alias can be renamed anytime with this function */
-        document.getElementById("data").innerHTML = "SMARTFARM";
+        document.getElementById("data").innerHTML = "";
         setInterval(function() {
             microgear.chat("Back_end_py","Connected with RASP-PI");
         },5000);
