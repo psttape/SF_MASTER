@@ -138,7 +138,7 @@ text-align:center;
       
 
     <a href="#observe"  data-transition="slide" class="ui-btn" >Observing and Controlling</a>
-    <a class="ui-btn" onclick="loadweb('http://192.168.1.5/graph_index.php', '_system', 'location=yes'); return false;">Statistic</a>
+    <a class="ui-btn" onclick="loadweb('http://172.20.10.2/graph_index.php', '_system', 'location=yes'); return false;">Statistic</a>
 </div>
 
 </div>
@@ -181,7 +181,7 @@ text-align:center;
     
         <p><a href="#myPopup1" data-rel="popup" class="ui-btn ui-shadow ui-btn-icon-left ui-icon-action test9" data-position-to="window" data-transition="fade">Manual control</a></p>
         
-        <p><a class="ui-btn ui-shadow ui-btn-icon-left ui-icon-search test9" onclick="loadweb('http://192.168.1.5/graph_index.php', '_system', 'location=yes'); return false;">Statistic</a>
+        <p><a class="ui-btn ui-shadow ui-btn-icon-left ui-icon-search test9" onclick="loadweb('http://172.20.10.2/graph_index.php', '_system', 'location=yes'); return false;">Statistic</a>
     </div>
     </div>
 
@@ -277,7 +277,7 @@ text-align:center;
     var microgear = Microgear.create({
         key: APPKEY,
         secret: APPSECRET,
-        //alias : "myhtml"         /*  optional  */
+        
     });
     function Light_on(){
             microgear.chat("Back_end_py","Light_ON");
